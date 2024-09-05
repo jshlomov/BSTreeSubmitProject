@@ -180,5 +180,29 @@ namespace BSTreeSubmitProject
 
             return node;
         }
+
+
+        // Serialize with pre order with the value
+        public List<DefenceStrategy> Serialize() => Serialize(Root);
+
+        public List<DefenceStrategy> Serialize(TreeNode root)
+        {
+            List<DefenceStrategy> result = new List<DefenceStrategy?>();
+            SerializeHelper(root, result);
+            return result;
+        }
+
+        private void SerializeHelper(TreeNode node, List<DefenceStrategy?> list)
+        {
+            if (node == null)
+            {
+                list.Add(null); // Use null to represent missing nodes
+                return;
+            }
+
+            list.Add(node.Value); // Add the current node's value
+            SerializeHelper(node.Left, list); // Traverse the left subtree
+            SerializeHelper(node.Right, list); // Traverse the right subtree
+        }
     }
 }
