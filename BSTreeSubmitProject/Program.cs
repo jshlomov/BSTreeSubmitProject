@@ -56,7 +56,7 @@ namespace BSTreeSubmitProject
             Thread.Sleep(4000);
             Console.WriteLine("\n\n");
 
-            //cretae new json
+            //cretae new json in bin folder
             Console.WriteLine("---Create new Json with the new tree---\n\n");
             var defSstrategies = tree.PreOrderTraversal();
             JsonUtil.SetDefenceStrategiesJson(defSstrategies, "newDefenceStrategies.json");
